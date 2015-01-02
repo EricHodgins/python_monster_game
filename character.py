@@ -4,7 +4,7 @@ class Character(object):
 	hit_points = 10
 
 	def get_weapon(self):
-		weapon_choice = raw_input("Weapon [S]word, [A]xe, [B]ow").lower()
+		weapon_choice = raw_input("Weapon [S]word, [A]xe, [B]ow: ").lower()
 
 		if weapon_choice in 'sab':
 			if weapon_choice == 's':
@@ -19,6 +19,6 @@ class Character(object):
 	def __init__(self, **kwargs):
 		self.name = raw_input("Name: ")  #in Python 3 this is just-> input("Name: ")
 		self.weapon = self.get_weapon()
-		
+
 		for key, value in kwargs.items():
 			setattr(self, key, value)
