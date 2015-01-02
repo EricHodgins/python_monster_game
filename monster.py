@@ -5,11 +5,12 @@
 # setattr(x, 'foobar', 123) = x.foobar = 123
 
 import random
+from combat import Combat
 
 COLORS = ['yellow', 'red', 'blue', 'green']
 
 
-class Monster(object):
+class Monster(Combat):
 	min_hit_points = 1
 	max_hit_points = 1
 	min_experience = 1
@@ -26,7 +27,7 @@ class Monster(object):
 			setattr(self, key, value)  #-> self.key = value
 
 	def __str__(self):
-		return "{} {}, HP: {}, XP:{}'".format(self.color.title(),
+		return "{} {}, HP: {}, XP:{}".format(self.color.title(),
 											  self.__class__.__name__,
 											  self.hit_points,
 											  self.experience)
