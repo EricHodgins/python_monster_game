@@ -5,6 +5,9 @@ from character import Character
 from monster import Dragon
 from monster import Goblin
 from monster import Troll
+import logging
+
+logging.basicConfig(filename="game.log", level=logging.DEBUG)
 
 class Game(object):
 	def setup(self):
@@ -14,12 +17,14 @@ class Game(object):
 						 Troll(),
 						 Dragon()]
 		self.monster = self.get_next_monster()
+		logging.info("The monster is: {}".format(self.monster))
 
 	def get_next_monster(self):
 		try:
 			return self.monsters.pop(0)
 		except IndexError:
 			return None
+
 
 	def monster_turn(self):
 		# check to see if the monster attacks
